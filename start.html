@@ -1,0 +1,126 @@
+<!--
+<nav class="navbar navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <i>Skude Film & TV</span></i>
+      </a>  
+     <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+            
+        </div>
+       
+    </form>
+     <ul class="nav navbar-nav">
+         <li><a href="/#/series">Serier</a></li>
+         <li class="active"><a href="/#/movies">Filmer</a></li>
+          <li><a href="/#/netflix">Netflix</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
+-->
+
+    
+    <input ng-model="query" id="search" name="search" type="text" placeholder="Hva leter du etter?">
+
+
+
+<div class="content">
+    
+    <div class="container-fluid" >
+        
+        
+         <!-- Featured -->
+        <div ng-if="query == null || query.length <= 1">
+            
+            <h2>Populære</h2>
+            <br>
+            <div class="row list" ng-repeat = "group in Featured">
+            <div class="col-md-3" ng-repeat="movie in group">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+                </div>
+            
+        </div>
+        </div>
+        
+        <!-- All the things -->
+        
+        <div ng-if="query != null && query.length > 1">
+        
+        <h2>Viaplay</h2>
+        <br>
+        <div class="row list" ng-repeat = "group in ViaPlayShows">
+            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+               
+            </div>
+        </div>
+            
+            <div class="row list" ng-repeat = "group in ViaPlayMovies">
+            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+                
+            </div>
+        </div>
+        
+            
+            
+        <h2>HBO</h2>
+        <br>
+        <div class="row list" ng-repeat = "group in HBOShows">
+            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+                
+            </div>
+        </div>
+        
+        
+        
+        <div class="row list" ng-repeat = "group in HBOMovies">
+            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+                
+            </div>
+        </div>
+        
+        <h2>Netflix</h2>
+        <br>
+        <div class="row list" ng-repeat = "group in Netflix">
+            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+                
+            </div>
+        </div>
+    
+        </div>
+   
+</div>
+      
+<!-- 
+
+-->

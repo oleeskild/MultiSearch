@@ -1,0 +1,100 @@
+<html ng-app="MovieApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+      <title>Skude Film og Serier</title>
+       
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
+      
+     
+    
+    <script>
+        var movieApp = angular.module("MovieApp", ['ngRoute']);
+        movieApp.config(function($routeProvider) {
+        $routeProvider.
+          when('/start', {
+            templateUrl: 'start.html',
+            controller: 'StartCtrl'
+          }).
+          otherwise({
+            redirectTo: '/start'
+          });
+      });
+        
+    
+        movieApp.controller('StartCtrl', function($scope, $http){
+            $http.get('Featured.json').
+            success(function(data){
+                $scope.Featured = data;
+            }).
+            error(function(data){
+                console.log("Failed to load Featured");
+            });
+            
+            $http.get('ViaPlayShows.json').
+            success(function(data){
+                $scope.ViaPlayShows = data;
+            }).
+            error(function(data){
+                console.log("Failed to load ViaPlayShow");
+            });
+            
+            $http.get('HBOShows.json').
+            success(function(data){
+                $scope.HBOShows = data;
+            }).
+            error(function(data){
+                console.log("Failed to load HBOSeries");
+            });
+            
+            $http.get('ViaPlayMovies.json').
+            success(function(data){
+                $scope.ViaPlayMovies = data;
+            }).
+            error(function(data){
+                console.log("Failed to load ViaPlayMovies");
+            });
+            
+            $http.get('HBOMovies.json').
+            success(function(data){
+                $scope.HBOMovies = data;
+            }).
+            error(function(data){
+                console.log("Failed to load HBOMovies");
+            });
+            
+            $http.get('Netflix.json').
+            success(function(data){
+                $scope.Netflix = data;
+            }).
+            error(function(data){
+                console.log("Failed to load Netflix");
+            });
+            
+           
+        });
+        
+       
+      
+        
+      
+        
+    </script>
+  </head>
+  <body>
+      <div ng-view></div>
+     
+      
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+      <script src="js/scroll.js"></script>
+    
+     
+  </body>
+</html>
