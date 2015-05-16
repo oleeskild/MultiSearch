@@ -20,9 +20,7 @@
   </div>
 </nav>
 -->
-
-    
-    <input ng-model="query" id="search" name="search" type="text" placeholder="Hva leter du etter?">
+    <input ng-model="query" id="search" name="search" type="text" autocomplete="off" placeholder="Hva leter du etter?">
 
 
 
@@ -40,8 +38,10 @@
             <div class="col-md-3" ng-repeat="movie in group">
                 
                     <a ng-href="{{movie.url}}" target="_blank">
+                    
                     <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
                          <div class="title">{{movie.title}}</div>
+                   
                     </a>
                 </div>
             
