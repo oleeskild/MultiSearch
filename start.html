@@ -34,18 +34,7 @@
             
             <h2>Populære</h2>
             <br>
-            <div class="row list" ng-repeat = "group in Featured">
-            <div class="col-md-3" ng-repeat="movie in group">
-                
-                    <a ng-href="{{movie.url}}" target="_blank">
-                    
-                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
-                         <div class="title">{{movie.title}}</div>
-                   
-                    </a>
-                </div>
-            
-        </div>
+            <movie-grid channel="Featured"></movie-grid>
         </div>
         
         <!-- All the things -->
@@ -54,68 +43,18 @@
         
         <h2>Viaplay</h2>
         <br>
-        <div class="row list" ng-repeat = "group in ViaPlayShows">
-            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
-                
-                    <a ng-href="{{movie.url}}" target="_blank">
-                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
-                         <div class="title">{{movie.title}}</div>
-                    </a>
-               
-            </div>
-        </div>
-            
-            <div class="row list" ng-repeat = "group in ViaPlayMovies">
-            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
-                
-                    <a ng-href="{{movie.url}}" target="_blank">
-                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
-                         <div class="title">{{movie.title}}</div>
-                    </a>
-                
-            </div>
-        </div>
-        
-            
-            
+        <movie-grid channel="ViaPlayShows" query="query"></movie-grid>
+        <movie-grid channel="ViaPlayMovies" query="query"></movie-grid>
+          
         <h2>HBO</h2>
         <br>
-        <div class="row list" ng-repeat = "group in HBOShows">
-            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
-                
-                    <a ng-href="{{movie.url}}" target="_blank">
-                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
-                         <div class="title">{{movie.title}}</div>
-                    </a>
-                
-            </div>
-        </div>
-        
-        
-        
-        <div class="row list" ng-repeat = "group in HBOMovies">
-            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
-                
-                    <a ng-href="{{movie.url}}" target="_blank">
-                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
-                         <div class="title">{{movie.title}}</div>
-                    </a>
-                
-            </div>
-        </div>
+        <movie-grid channel="HBOShows" query="query"></movie-grid>
+        <movie-grid channel="HBOMovies" query="query"></movie-grid>
         
         <h2>Netflix</h2>
         <br>
-        <div class="row list" ng-repeat = "group in Netflix">
-            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
-                
-                    <a ng-href="{{movie.url}}" target="_blank">
-                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
-                         <div class="title">{{movie.title}}</div>
-                    </a>
-                
-            </div>
-        </div>
+        <movie-grid channel="Netflix" query="query"></movie-grid>
+        
     
         </div>
    

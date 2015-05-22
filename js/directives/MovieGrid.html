@@ -1,0 +1,10 @@
+<div class="row list" ng-repeat = "group in channel">
+            <div class="col-md-3" ng-repeat="movie in group | filter:{title:query}">
+                
+                    <a ng-href="{{movie.url}}" target="_blank">
+                    <img class="cover img-responsive img-rounded" ng-src="{{movie.picture}}"  alt="{{movie.title}}">
+                         <div class="title">{{movie.title}}</div>
+                    </a>
+               
+            </div>
+        </div>
